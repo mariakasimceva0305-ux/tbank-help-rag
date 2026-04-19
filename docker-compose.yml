@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - ./qdrant_storage:/qdrant/storage
+
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    depends_on:
+      - qdrant
+    restart: on-failure
+    env_file:
+      - .env
+    environment:
+      - QDRANT_HOST=qdrant
+    volumes:
+      - huggingface_cache:/root/.cache/huggingface
+
+volumes:
+  huggingface_cache:

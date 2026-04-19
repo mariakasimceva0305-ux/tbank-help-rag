@@ -1,0 +1,33 @@
+# Virtual environments
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Secrets
+.env
+.env.local
+
+# Local Qdrant data (Docker volume or embedded)
+qdrant_storage/
+
+# Generated from sitemap (large); recreate: python -m src.rag.parse_sitemap
+src/rag/urls.txt
+
+# Caches
+.cache/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
